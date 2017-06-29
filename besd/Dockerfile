@@ -20,7 +20,7 @@ RUN \
     curl https://bootstrap.pypa.io/get-pip.py -o /get-pip.py && \
     python /get-pip.py && \
     pip install supervisor && \
-    supervisord --version
+    echo "supervisord " `supervisord --version`
 
 COPY supervisord.conf /etc
 
@@ -50,7 +50,7 @@ ENV BES_SYMLINKS=Yes
 
 
 RUN echo "############################" && \
-    ls -l /usr/bin/besdaemon && ls -l /etc/supervisord.conf && \
+    ls -l /usr/bin/besdaemon /usr/bin/supervisord /etc/supervisord.conf && \
     echo "############################" 
 
 
